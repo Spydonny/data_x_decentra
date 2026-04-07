@@ -70,10 +70,10 @@ KYA закрывает этот пробел, создавая стандарт 
 
 ## Репозитории
 
-* Core / основной протокол
+* Backend
   [https://github.com/Aldiyar58/Decentrathon_5_2026_KYA](https://github.com/Aldiyar58/Decentrathon_5_2026_KYA)
 
-* Solana program (Rust, on-chain verification logic, PDA storage)
+* Solana program 
   [https://github.com/archexis/kya](https://github.com/archexis/kya)
 
 * Frontend
