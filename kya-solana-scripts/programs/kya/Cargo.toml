@@ -1,0 +1,23 @@
+[package]
+name = "kya"
+version = "0.1.0"
+description = "fuck u"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "kya"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+idl-build = ["anchor-lang/idl-build"]
+default = []
+
+[dependencies]
+anchor-lang = "1.0.0"
+
+[lints.rust]
+unexpected_cfgs = { level = "allow", check-cfg = ['cfg(feature, values("anchor-debug"))'] }

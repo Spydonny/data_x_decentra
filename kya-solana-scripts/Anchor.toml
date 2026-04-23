@@ -1,0 +1,14 @@
+[toolchain]
+anchor_version = "1.0.0"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.devnet]
+kya = "3HtY7pQE8pcsjJ2BxhadeSg7ZoU7Hm28pgMRYCpj5n4g"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
