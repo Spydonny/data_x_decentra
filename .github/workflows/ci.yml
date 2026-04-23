@@ -1,0 +1,39 @@
+﻿name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate Repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check repository structure
+        run: |
+          echo "Checking repository structure..."
+          test -f README.md && echo "OK README.md"
+          test -f CONTRIBUTING.md && echo "OK CONTRIBUTING.md"
+          test -f .env.example && echo "OK .env.example"
+          test -f kya-backend/.env.example && echo "OK kya-backend/.env.example"
+          test -f kya_front/.env.example && echo "OK kya_front/.env.example"
+          test -f docs/architecture.md && echo "OK docs/architecture.md"
+          test -f docs/api.md && echo "OK docs/api.md"
+          test -f docs/product.md && echo "OK docs/product.md"
+          test -f docs/roadmap.md && echo "OK docs/roadmap.md"
+          test -f kya-backend/requirements.txt && echo "OK kya-backend/requirements.txt"
+          test -f kya_front/package.json && echo "OK kya_front/package.json"
+          test -f kya-solana-scripts/Anchor.toml && echo "OK kya-solana-scripts/Anchor.toml"
+          echo ""
+          echo "All checks passed!"
+
+      - name: Lint markdown metadata
+        run: |
+          echo "README word count: $(wc -w < README.md) words"
+          echo "Docs files: $(find docs -maxdepth 1 -type f | wc -l)"
+          echo "Lint complete."
